@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: test
+
+build:
+  local:
+    useBuildkit: true
+    push: false
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+    - image: test
+      docker:
+        cacheFrom:
+          - test
